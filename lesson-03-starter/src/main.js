@@ -9,7 +9,8 @@ var name = true;//var as Boolean var is for functions
 console.log(n);
 console.log(x);
 n = 1;
-var x = 1
+var x = 1;
+var y = 10;
 console.log(n);
 console.log(x);
 //let and var can both be changed
@@ -31,3 +32,11 @@ console.log(`parsedNumber back to string: ${typeof numberBackToString}`);
 // Student TODO: 
 // Prompt the user for their name and age
 // Log a greeting message using the provided name and age
+console.log(`${x} + ${y} = ${x + y}`);
+x = x + 1;
+x++;
+x--;
+x = x - 1;
+console.log(x);
+x *= 2;
+console.log(x);
