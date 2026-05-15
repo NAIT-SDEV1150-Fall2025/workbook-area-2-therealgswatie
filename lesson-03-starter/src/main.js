@@ -40,3 +40,21 @@ x = x - 1;
 console.log(x);
 x *= 2;
 console.log(x);
+//composite data types
+//array
+const fruits = ["apple","banana","cherry"];
+const number = [1,2,3,4,5,6,7,8,9,0];
+const mix = [1,"name",true];
+//object (like a dictionary)
+//comprises of key value pairs
+const person = {1:"name",2:"age",3:"height"}//curly bracketys identify an object with colons : (like a dict)
+//both keys and values can have any data type(primitive and composite)
+const PERSON = {
+    "name":"Suneel",
+    "age":27,
+    "height":"6 foot",
+} // formated like so:    key:value
+const human = { 
+    name: 'Suneel',
+    age: 27
+}
