@@ -1,5 +1,5 @@
 console.log('Lesson 04 starter loaded');
-
+/*
 // Instructor TODO:
 // 1. Simple if
 const x = 5;
@@ -15,9 +15,7 @@ if (x % 2 === 0) {
 } else {
   console.log('x is odd');
 }
-/*
-const THIS_IS_A_CONSTANT //use screaming snake case for const
-*/
+//const THIS_IS_A_CONSTANT //use screaming snake case for const
 
 // 3. Nested if-else
 if (x > 10) {
@@ -34,18 +32,32 @@ while (count > 0) { // runs code while condition is true
   count--;
 }
 let counter = 10;
-while (counter !== 0) {
+while (counter > 0) {
   console.log(counter);
   counter--;
 }
-
+*/
 // 5. do-while loop
-// 6. for loop
+// a do-while loop always run at least once.
+let i = 0;
+do {
+  console.log(`i is ${i}`);
+  i++;
+} while (i < 3);
 
+let j = 0;
+do {
+  j++;
+  console.log(`Count up: ${j}`);
+} while (j < 10);
+// 6. for loop
+for (let i = 0; i < 3; i++) {
+  console.log(`i is now ${i}`);
+}
 // Student TODO:
 // 7. Snippet with bugs for debugging practice
 // Snippet with bugs for debugging practice - uncomment when ready
-
+/*
 const num = 10;
 
 if (num > 5) {
@@ -59,3 +71,4 @@ while (k < 3) {
   k++;
   console.log(k);
 }
+*/
