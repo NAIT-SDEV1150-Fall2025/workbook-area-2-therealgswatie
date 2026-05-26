@@ -12,7 +12,7 @@ const footerNote = document.getElementById('footer-note'); // document.querySele
 // something here
 // const footerNote = document.getElementById('footer-note'); // Same a the other one, maybe faster
 // 2. textContent vs innerHTML
-title.textContent = 'something';
+// title.textContent = 'something';
 dynamicBox.innerHTML = `<p class = "desc"> This block was <strong>injected</strong> using <em>innerHTML</em></p>`;
 heroCaption.textContent = 'This caption was updated using textContent.';
 // 3. Attributes & styles
@@ -26,6 +26,18 @@ function updateText(selector, text) {
   }
   el.textContent = text;
 }
+// updateText(title, `someting`);
+function updateInnerHTML(selector, HTMLContent) {
+  const el = document.querySelector(selector);
+
+  if (!el) {
+    return console.warn('No element is found for', selector);
+  }
+
+  el.innerHTML = HTMLContent;
+}
+
+updateInnerHTML(title, '<h1>TITLE HERE<h1>');
 // 5. Use helpers to perform simple tasks
 
 // 6. Footer text tweak (demonstrate class toggle & style change)
