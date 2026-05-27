@@ -37,11 +37,13 @@ function updateInnerHTML(selector, HTMLContent) {
   el.innerHTML = HTMLContent;
 }
 
-updateInnerHTML(title, '<h1>TITLE HERE<h1>');
+updateText('.tagline', 'TEXT HERE');
+updateInnerHTML('#dynamic-box', `<p class="desc"> Replaced again via <code>updateHTML()</code>. Notice how we can inject different markup here.</p>`);
 // 5. Use helpers to perform simple tasks
 
 // 6. Footer text tweak (demonstrate class toggle & style change)
-
+footerNote.classList.add('footer-strong');
+footerNote.innerHTML = `&copy; 2025 Front End Fundamentals`;
 // Require innerHTML here to render the &copy; entity correctly
 // function definition
 /*

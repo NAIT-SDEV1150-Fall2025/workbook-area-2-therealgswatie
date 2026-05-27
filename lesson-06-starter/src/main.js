@@ -9,7 +9,12 @@ const dynamicBox = document.querySelector('#dynamic-box');
 const footerNote = document.querySelector('#footer-note');
 
 // 1. Create a new variable for the feature list element
+const listItem = document.createElement('li'); // creates <li></li>
+const wholeList = document.getElementById('feature-list');
 
+listItem.className = 'feature'; // changes to <li class='feature'></li>
+listItem.textContent = 'Flexible'; // changes to <li class='feature'>Flexible</li>
+wholeList.appendChild(listItem); // this adds the child to the html doc.
 // 2. Add feature list to the displayed elements below
 console.log('Selected elements:', {
   titleEl, taglineEl, heroImg, heroCaption, dynamicBox, footerNote,
