@@ -1,7 +1,7 @@
 console.log('Lesson 06 starter loaded');
 
 // Selecting elements
-const titleEl = document.querySelector('#page-title');
+const titleEl = document.querySelector('#page-title'); // query selector selects first occurence only
 const taglineEl = document.querySelector('.tagline');
 const heroImg = document.querySelector('#hero-img');
 const heroCaption = document.querySelector('#hero-caption');
@@ -10,29 +10,38 @@ const footerNote = document.querySelector('#footer-note');
 
 // 1. Create a new variable for the feature list element
 const listItem = document.createElement('li'); // creates <li></li>
-const wholeList = document.getElementById('feature-list');
+const featureList = document.getElementById('feature-list');
 
+// 3. Modify list content
 listItem.className = 'feature'; // changes to <li class='feature'></li>
 listItem.textContent = 'Flexible'; // changes to <li class='feature'>Flexible</li>
-wholeList.appendChild(listItem); // this adds the child to the html doc.
+// 4. Add a new item dynamically
+featureList.appendChild(listItem); // this adds the child to the html doc.
 // 2. Add feature list to the displayed elements below
 console.log('Selected elements:', {
   titleEl, taglineEl, heroImg, heroCaption, dynamicBox, footerNote,
 });
 
-// Modify list content
-// 4. Add a new item dynamically
-
 // 5. Retreive all list items (querySelectorAll) and update their text
-
+const allFeatures = document.querySelectorAll('.feature');
+allFeatures.forEach((item, i) => { // arrow function
+  item.textContent = `${i + 1}. ${item.textContent}`;
+});
 // 6. Removing the first item from the list using DOM relationships to find it
-
+featureList.removeChild(featureList.firstElementChild);
 // 7. Update the second item using nextElementSibling
-
+featureList.firstElementChild.nextElementSibling.textContent += '(updated)';
 // 8. Move the last item to the front of the list
-
+const lastChild = featureList.removeChild(featureList.lastChild); // saves the lastChild into lastChild and removes the last child as well.
+featureList.insertBefore(lastChild, featureList.firstChild);
+// insertbefore(elementToInsert,locationOfInsert);
 // 9. Use a timer to add a new item after 3 seconds have passed
-
+const listItemAgain = document.createElement('li');
+listItemAgain.className = 'feature';
+listItemAgain.textContent = `it's been 3 seconds`;
+setTimeout(() => {
+  featureList.appendChild(listItemAgain);
+}, 3000); // 3000 miliseconds is 3 seconds
 // **** THE FOLLOWING IS EXISTING CODE FROM LESSON 05
 
 // textContent vs innerHTML
@@ -95,7 +104,7 @@ footerNote.classList.add('footer-strong');
 footerNote.innerHTML = '&copy; 2025 Front End Fundamentals';
 
 // Null-safety tip: check selections before using them
-const missing = document.querySelector('#does-not-exist');
-if (!missing) {
-  console.warn('Selector #does-not-exist did not match any element.');
-}
+// const missing = document.querySelector('#does-not-exist');
+// if (!missing) {
+//  console.warn('Selector #does-not-exist did not match any element.');
+//}
