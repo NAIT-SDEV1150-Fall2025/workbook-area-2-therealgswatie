@@ -1,13 +1,5 @@
 # Lesson 10 Starter
 
-## Setup the lesson example
-
-Create a new vanilla project using the following command:
-
-```sh
-npm create vite@latest lesson-10 -- --template vanilla
-```
-
 ## Install dependencies and run the dev server
 
 0. Extract the starter zip and rename the folder to `lesson-10`
@@ -34,6 +26,80 @@ npm run dev
 ## Instructor Demo and Student Exercise
 
 Complete the demo along with your instructor and then attempt the exercise prompts (see the comments in the `main.js` file).
+
+This lesson walks through working with forms: reading values, gathering checkbox/radio inputs, handling `submit` (preventing default navigation), and showing a structured summary of form data.
+
+### Select required elements
+
+````js
+const form = document.querySelector('#contact-form');
+const result = document.querySelector('#result');
+````
+
+### Serialize form data (gather values)
+
+````js
+function serializeForm(formEl) {
+	
+	// Access inputs from form.elements
+	const { fullName, email, bio } = formEl.elements;
+
+	// Radio value
+	const plan = formEl.elements.plan.value;
+
+	// Checkboxes: gather checked values
+	const topics = Array.from(formEl.querySelectorAll('input[name="topics"]:checked'))
+		.map(cb => cb.value);
+
+	return {
+		fullName: fullName.value.trim(),
+		email: email.value.trim(),
+		plan,
+		topics,
+		bio: bio.value.trim(),
+		submittedAt: new Date().toLocaleString(),
+	};
+}
+````
+
+### Handle form submission (prevent page reload)
+
+````js
+form.addEventListener('submit', (event) => {
+	event.preventDefault(); // stop form from navigating/reloading
+
+	const data = serializeForm(form);
+
+	result.textContent = 
+    `Submission received:
+    - Name: ${data.fullName || '(none)'}
+    - Email: ${data.email || '(none)'}
+    - Skill: ${data.plan || '(none)'}
+    - Strengths: ${data.topics.length ? data.topics.join(', ') : '(none)'}
+    - Bio: ${data.bio || '(none)'}
+    - Time: ${data.submittedAt}`;
+});
+````
+
+### Handle form reset (clear result area)
+
+````js
+form.addEventListener('reset', () => {
+	result.textContent = 'Awaiting submission...';
+});
+````
+
+
+| Method                       | What it does                                                                                            |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `setCustomValidity(message)` | Sets a custom error message. If `message` is not empty, the field becomes invalid.                      |
+| `setCustomValidity('')`      | Clears any custom error and makes the field valid again (assuming no other validation errors).          |
+| `checkValidity()`            | Returns `true` if the element/form is valid, otherwise `false`. Does **not** show error messages.       |
+| `reportValidity()`           | Checks validity and shows the browser's validation popup/message if invalid. Returns `true` or `false`. |
+| `validity`                   | Object containing detailed validation states (`valueMissing`, `tooShort`, `patternMismatch`, etc.).     |
+| `validationMessage`          | Returns the current error message for the field.                                                        |
+| `willValidate`               | Returns `true` if the element participates in validation.                                               |
+
 
 ## Push to your GitHub workbook repo
 
