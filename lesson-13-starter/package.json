@@ -1,0 +1,19 @@
+{
+  "name": "lesson-13-starter",
+  "version": "1.0.0",
+  "description": "```sh\r mkdir lesson-13\r cd lesson-13\r npm init # follow prompts\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dayjs": "^1.11.21"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.4"
+  }
+}
